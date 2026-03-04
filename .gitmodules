@@ -1,0 +1,6 @@
+[submodule "Displays"]
+	path = Displays
+	url = git@github.com:Maks-Suvajev/Displays.git
+[submodule "Models"]
+	path = Models
+	url = git@github.com:Maks-Suvajev/Models.git
