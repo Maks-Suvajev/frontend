@@ -6,6 +6,7 @@
 
 #include "Viewport.h"
 #include "TextureDisplay.h"
+#include "ShaderDisplay.h"
 
 // QT libs
 #include <QMainWindow>
@@ -27,10 +28,16 @@ class MainWindow : public QMainWindow
 
     private:
         void setWidgetColours(QWidget* widget);
-        void setupTexturemanagerDisplay();
+
+        void setupDisplays();
+        void setupTextureManagerDisplay();
+        void setupShaderManagerDisplay();
+
         std::unique_ptr<QVBoxLayout>            m_layout;
+        std::unique_ptr<QHBoxLayout>            m_controlLayout;
         std::unique_ptr<Viewport>               m_viewport;
         std::unique_ptr<TextureDisplay>         m_textureDisplay;
+        std::unique_ptr<ShaderDisplay>          m_shaderDisplay;
         std::unique_ptr<EngineCore>             m_engine;
 
 };

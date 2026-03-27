@@ -14,23 +14,36 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     int index = m_layout->indexOf(m_viewport.get());
     m_layout->setStretch(index, 1);
 
-    setupTexturemanagerDisplay();
+    m_controlLayout = std::make_unique<QHBoxLayout>();
+    m_layout->addLayout(m_controlLayout.get());
 
     setWidgetColours(this);
     this->setWindowTitle("Rendering Engine");
     this->resize(1280, 720);
+
+    connect(m_engine.get(), &EngineCore::engineInitialised, this, &MainWindow::setupDisplays);
 }
 
-void MainWindow::setupTexturemanagerDisplay()
+
+void MainWindow::setupDisplays()
 {
-    const auto setup = [this](){
-        m_textureDisplay = std::make_unique<TextureDisplay>(m_engine->getTextureManager(), this);
-        m_layout->addWidget(m_textureDisplay.get());
-        m_textureDisplay->show();
-    };
-
-    connect(m_engine.get(), &EngineCore::engineInitialised, this, setup);
+    setupTextureManagerDisplay();
+    setupShaderManagerDisplay();
 }
+
+void MainWindow::setupTextureManagerDisplay()
+{
+    m_textureDisplay = std::make_unique<TextureDisplay>(m_engine->getTextureManager(), this);
+    m_controlLayout->addWidget(m_textureDisplay.get());
+    m_textureDisplay->show();
+ }
+
+void MainWindow::setupShaderManagerDisplay()
+{
+    m_shaderDisplay = std::make_unique<ShaderDisplay>(m_engine->getShaderManager(), this);
+    m_controlLayout->addWidget(m_shaderDisplay.get());
+    m_shaderDisplay->show();
+ }
 
 
 void MainWindow::setWidgetColours(QWidget* widget)
