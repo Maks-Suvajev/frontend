@@ -2,6 +2,10 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
+
+add_subdirectory(Displays)
+add_subdirectory(Models)
+
 add_library(FrontendLib
     source/MainWindow.cpp
     source/MainWindow.h
@@ -9,9 +13,6 @@ add_library(FrontendLib
     source/Viewport.h
     ${CORE_MOC_FILES}
 )
-
-add_subdirectory(Displays)
-add_subdirectory(Models)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets OpenGLWidgets)
 
