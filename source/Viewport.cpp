@@ -1,5 +1,8 @@
 #include "Viewport.h"
 
+namespace gui
+{
+
 const glm::vec4 screenClearColour = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
 
 Viewport::Viewport(EngineCore* engine, QWidget* parent)
@@ -36,4 +39,6 @@ void Viewport::resizeGL(int w, int h)
 void Viewport::clearScreen()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
 }

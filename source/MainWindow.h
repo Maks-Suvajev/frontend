@@ -7,6 +7,7 @@
 #include "Viewport.h"
 #include "TextureDisplay.h"
 #include "ShaderDisplay.h"
+#include "SceneModelDisplay.h"
 
 // QT libs
 #include <QMainWindow>
@@ -17,6 +18,9 @@
 
 // Engine
 #include "EngineCore.h"
+
+namespace gui
+{
 
 class MainWindow : public QMainWindow
 {
@@ -32,17 +36,19 @@ class MainWindow : public QMainWindow
         void setupDisplays();
         void setupTextureManagerDisplay();
         void setupShaderManagerDisplay();
+        void setupSceneModelManagerDisplay();
 
         std::unique_ptr<QVBoxLayout>            m_layout;
         std::unique_ptr<QHBoxLayout>            m_controlLayout;
         std::unique_ptr<Viewport>               m_viewport;
         std::unique_ptr<TextureDisplay>         m_textureDisplay;
         std::unique_ptr<ShaderDisplay>          m_shaderDisplay;
+        std::unique_ptr<SceneModelDisplay>      m_sceneModelDisplay;
         std::unique_ptr<EngineCore>             m_engine;
 
 };
 
-
+}
 
 
 #endif

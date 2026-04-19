@@ -9,6 +9,9 @@
 
 #include "EngineCore.h"
 
+namespace gui
+{
+
 class Viewport : public QOpenGLWidget, public QOpenGLExtraFunctions
 {
 
@@ -29,4 +32,5 @@ class Viewport : public QOpenGLWidget, public QOpenGLExtraFunctions
 
 };
 
+}
 #endif
