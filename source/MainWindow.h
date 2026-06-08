@@ -38,6 +38,7 @@ class MainWindow : public QMainWindow
         void setupShaderManagerDisplay();
         void setupSceneModelManagerDisplay();
 
+        //TODO:: Don't use RAII for Qt specific objects, it already handles their destruction automatically. Only use it for engine core
         std::unique_ptr<QVBoxLayout>            m_layout;
         std::unique_ptr<QHBoxLayout>            m_controlLayout;
         std::unique_ptr<Viewport>               m_viewport;
