@@ -8,6 +8,7 @@
 #include "TextureDisplay.h"
 #include "ShaderDisplay.h"
 #include "SceneModelDisplay.h"
+#include "EntityModelDisplay.h"
 
 // QT libs
 #include <QMainWindow>
@@ -37,6 +38,8 @@ class MainWindow : public QMainWindow
         void setupTextureManagerDisplay();
         void setupShaderManagerDisplay();
         void setupSceneModelManagerDisplay();
+        void setupEntityManagerDisplay();
+
 
         //TODO:: Don't use RAII for Qt specific objects, it already handles their destruction automatically. Only use it for engine core
         std::unique_ptr<QVBoxLayout>            m_layout;
@@ -45,6 +48,7 @@ class MainWindow : public QMainWindow
         std::unique_ptr<TextureDisplay>         m_textureDisplay;
         std::unique_ptr<ShaderDisplay>          m_shaderDisplay;
         std::unique_ptr<SceneModelDisplay>      m_sceneModelDisplay;
+        std::unique_ptr<EntityModelDisplay>     m_entityDisplay;
         std::unique_ptr<EngineCore>             m_engine;
 
 };

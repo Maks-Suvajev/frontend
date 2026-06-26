@@ -38,6 +38,7 @@ void MainWindow::setupDisplays()
     setupTextureManagerDisplay();
     setupShaderManagerDisplay();
     setupSceneModelManagerDisplay();
+    setupEntityManagerDisplay();
 }
 
 void MainWindow::setupTextureManagerDisplay()
@@ -59,6 +60,13 @@ void MainWindow::setupSceneModelManagerDisplay()
     m_sceneModelDisplay = std::make_unique<SceneModelDisplay>(m_engine->getSceneModelManager(), m_viewport.get(), this);
     m_controlLayout->addWidget(m_sceneModelDisplay.get());
     m_sceneModelDisplay->show();
+}
+
+void MainWindow::setupEntityManagerDisplay()
+{
+    m_entityDisplay = std::make_unique<EntityModelDisplay>(m_engine->getEntityManager(), this);
+    m_controlLayout->addWidget(m_entityDisplay.get());
+    m_entityDisplay->show();
 }
 
 void MainWindow::setWidgetColours(QWidget* widget)

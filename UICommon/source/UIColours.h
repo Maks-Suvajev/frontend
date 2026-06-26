@@ -6,6 +6,10 @@
 namespace gui
 {
 
+//TODO::change file name to generic UI header
+constexpr int constTitleFontSize =  15;
+constexpr int constSpacing =  15;
+
 constexpr QColor positiveGreen = QColor(0xE2, 0xF0, 0xCB);
 constexpr QColor negativeRed   = QColor(0xFF, 0xB7, 0xB2);
 
